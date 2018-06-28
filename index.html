@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="deckOfCardApp">
+
+<head>
+    <title>Deck of card</title>
+    <!-- Angular js  -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <!-- JQuery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Custom Script/CSS -->
+    <script type="text/javascript" src="scriptController.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	
+    <div class="container">
+		<h1>Deck of Cards</h1>
+        <div class="row">
+            
+            <div ng-controller="CardController as vm" class="container" style="background-color: lightblue;">
+                <div class="row">
+				<div class="container" style="background-color: lightblue;">
+                    <div class="input-group">
+                       <label>No of Cards want to Draw:</label> <input type="number" class="form-control" placeholder="Number of Dack" ng-model="vm.numberOfCard" aria-describedby="basic-addon1">
+                       
+                    </div><br/>
+					 <button class="btn btn-primary" id="draw" ng-click="vm.drawCard()">Draw Card</button>
+                        
+						</div>
+                </div></br>
+                <div class="row">
+                    <div class="container" style="background-color: lightblue;">
+					<h1> Drawn Cards </h1>
+                        <div class="row">
+                            <div ng-repeat="(key,val) in vm.dack" class="col-md-1">
+                                <div class="card" ng-class="{'red':val.suits=='diamonds'||val.suits=='hearts','black':val.suits=='clubs'||val.suits=='spades'}">
+                                    <span class="rank">{{val.rank}}</span>
+                                    <span class="suit" ng-if="val.suits=='spades'">&spades;</span>
+                                    <span class="suit" ng-if="val.suits=='clubs'">&clubs;</span>
+                                    <span class="suit" ng-if="val.suits=='hearts'">&hearts;</span>
+                                    <span class="suit" ng-if="val.suits=='diamonds'">&diams;</span>
+                                    <span class="remove" ng-click=vm.deleteCard(key)>X</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<button class="btn btn-primary" id="shuffle" ng-click="vm.shuffleCard()">Shuffle Card</button>
+                <button class="btn btn-primary" id="sort" ng-click="vm.sortCard()">Sort Card</button></br>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
