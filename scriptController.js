@@ -89,51 +89,5 @@ angular.module('deckOfCardApp', [])
             angular.copy(cards.clubs.concat(cards.spades).concat(cards.hearts).concat(cards.diamonds), vm.dack);
         }
 
-        vm.deleteCard = function(index) {
-            var card = vm.dack[index];
-            var cardIndex = card.suits + "_" + card.rank;
-
         
-            switch (card.suits) {
-                case 'clubs':
-                    angular.forEach(vm.cards.clubs, function(val, key) {
-                        if (val.rank == card.rank) {
-                            vm.cards.clubs.splice(key, 1);
-                            return;
-                        }
-                    });
-                    break;
-                case 'spades':
-                    angular.forEach(vm.cards.spades, function(val, key) {
-                        if (val.rank == card.rank) {
-                            vm.cards.spades.splice(key, 1);
-                            return;
-                        }
-                    });
-                    break;
-                case 'hearts':
-                    angular.forEach(vm.cards.hearts, function(val, key) {
-                        if (val.rank == card.rank) {
-                            vm.cards.hearts.splice(key, 1);
-                            return;
-                        }
-                    });
-                    break;
-                case 'diamonds':
-                    angular.forEach(vm.cards.diamonds, function(val, key) {
-                        if (val.rank == card.rank) {
-                            vm.cards.diamonds.splice(key, 1);
-                            return;
-                        }
-                    });
-                    break;
-                default:
-                    break;
-            }
-
-            vm.dackIndex.splice(vm.dackIndex.indexOf(cardIndex), 1);
-            vm.dack.splice(index, 1);
-            vm.numberOfCard--;
-           
-        }
     });
