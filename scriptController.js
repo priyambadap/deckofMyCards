@@ -3,7 +3,7 @@ angular.module('deckOfCardApp', [])
         var vm = this;
         vm.suits = ["clubs", "spades", "hearts", "diamonds", ];
         vm.ranks = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
-        vm.numberOfCard = 20;
+        vm.numberOfCard = 1;
         vm.dack = [];
         vm.dackIndex = [];
         vm.cards = {
