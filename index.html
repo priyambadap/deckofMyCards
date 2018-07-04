@@ -37,7 +37,7 @@
 					<h1> Drawn Cards </h1>
                         <div class="row">
                             <div ng-repeat="(key,val) in vm.dack" class="col-md-1">
-                                <div class="card" ng-class="{'red':val.suits=='diamonds'||val.suits=='hearts','black':val.suits=='clubs'||val.suits=='spades'}">
+                                <div class="card" ng-class="{'red':val.suits=='diamonds'||val.suits=='hearts','black':val.suits=='clubs'||val.suits=='spades'}" ng-click="vm.deleteCard(key)">
                                     <span class="rank">{{val.rank}}</span>
                                     <span class="suit" ng-if="val.suits=='spades'">&spades;</span>
                                     <span class="suit" ng-if="val.suits=='clubs'">&clubs;</span>
